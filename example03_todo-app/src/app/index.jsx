@@ -4,6 +4,7 @@ import { useState, useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { useTodos } from "@/hooks/useTodos";
 import { TodoItem } from "@/components/TodoItem";
+import { StatusBar } from "expo-status-bar"
 
 import Octicons from '@expo/vector-icons/Octicons'
 
@@ -19,6 +20,8 @@ export default function Index() {
   };
 
   const styles = createStyles(theme, colorScheme)
+
+  /* Remove the theme line for having the component load it's own theme */
 
   return (
     <SafeAreaView style={styles.container}>
@@ -44,14 +47,17 @@ export default function Index() {
       <FlatList
         data={todos}
         renderItem={({ item }) => (
-          <TodoItem item={item} onToggle={toggleTodo} onRemove={removeTodo} />
+          <TodoItem item={item} onToggle={toggleTodo} onRemove={removeTodo} theme={theme}  />
         )}
         keyExtractor={todo => todo.id.toString()}
         contentContainerStyle={{ flexGrow: 1 }}
       />
+
+      <StatusBar style={colorScheme==='dark'?'light':'dark'} />
     </SafeAreaView>
   );
 }
+
 
 function createStyles(theme, colorScheme) {
   return StyleSheet.create({

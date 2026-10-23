@@ -3,8 +3,12 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "dependencies": {
+    "@expo-google-fonts/coming-soon": "^0.4.1",
+    "@expo-google-fonts/inter": "^0.4.2",
+    "@expo-google-fonts/saira": "^0.4.2",
     "@expo/ui": "~57.0.26",
     "@expo/vector-icons": "^15.0.2",
+    "@react-native-async-storage/async-storage": "^3.1.1",
     "expo": "~57.0.31",
     "expo-constants": "~57.0.22",
     "expo-device": "~57.0.2",
